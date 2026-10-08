@@ -1,0 +1,29 @@
+FDS PRACTICAL - SLIP 12
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df=pd.read_csv('iris.csv')
+for c in ['sepal_length','sepal_width','petal_length','petal_width']:
+    sns.boxplot(data=df,x='species',y=c); plt.show()
+
+Q2 OPTION 1
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+df=pd.read_csv('StudentData.csv')
+for c in ['Age','Fees']: df[c]=df[c].fillna(df[c].mean())
+df=pd.get_dummies(df,columns=['City'])
+df['Admitted']=LabelEncoder().fit_transform(df['Admitted'])
+print(df)
+
+Q2 OPTION 2
+import numpy as np
+import matplotlib.pyplot as plt
+a=np.random.randint(1,100,50).tolist()+[200,-100]
+plt.plot(a); plt.show()
+plt.scatter(range(len(a)),a); plt.show()
+plt.hist(a); plt.show()
+plt.boxplot(a); plt.show()

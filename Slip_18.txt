@@ -1,0 +1,25 @@
+FDS PRACTICAL - SLIP 18
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import numpy as np
+a=np.array([2,4,6,8,10,12,14,16,18,20])
+print('Sum',a.sum(),'Mean',a.mean(),'Min',a.min(),'Max',a.max())
+
+Q2 OPTION 1
+import pandas as pd
+df=pd.read_csv('iris.csv')
+print(df.sample(5))
+print(df.select_dtypes('number').max())
+print(df.select_dtypes('number').min())
+print(df.iloc[:,-1].value_counts())
+
+Q2 OPTION 2
+import pandas as pd
+import numpy as np
+df=pd.DataFrame({'X':[1,2,3,4],'Y':[2,4,6,8]})
+a=df.iloc[0].values; b=df.iloc[2].values; d=b-a
+print('Difference',d)
+print('Euclidean',np.linalg.norm(d))
+print('Manhattan',np.abs(d).sum())

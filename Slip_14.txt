@@ -1,0 +1,24 @@
+FDS PRACTICAL - SLIP 14
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+d={'Name':['A','B','C'],'Marks':[80,75,90],'City':['Pune','Mumbai','Delhi']}
+print(pd.DataFrame(d))
+
+Q2 OPTION 1
+import pandas as pd
+df=pd.read_csv('employee.csv')
+s=df['Salary']
+print('Mean',s.mean(),'Median',s.median(),'Variance',s.var(),'SD',s.std())
+print('Min',s.min(),'Max',s.max(),'Quartiles',s.quantile([.25,.5,.75]),'Count',s.count())
+
+Q2 OPTION 2
+import pandas as pd
+import matplotlib.pyplot as plt
+df=pd.read_csv('iris.csv')
+df['species'].value_counts().plot(kind='bar'); plt.show()
+for c in df.select_dtypes('number'):
+    for n,g in df.groupby('species'): plt.hist(g[c],alpha=.5,label=n)
+    plt.legend(); plt.title(c); plt.show()

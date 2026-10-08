@@ -1,0 +1,24 @@
+FDS PRACTICAL - SLIP 9
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+df=pd.read_csv('iris.csv')
+print(df['species'].value_counts())
+
+Q2 OPTION 1
+import numpy as np
+import matplotlib.pyplot as plt
+a=np.random.randint(1,100,50)
+plt.plot(a); plt.show()
+plt.scatter(range(50),a); plt.show()
+plt.hist(a); plt.show()
+plt.boxplot(a); plt.show()
+
+Q2 OPTION 2
+import pandas as pd
+df=pd.read_csv('employee.csv')
+s=df['Salary']
+print(s.describe())
+print('Variance',s.var(),'Quartiles',s.quantile([.25,.5,.75]))

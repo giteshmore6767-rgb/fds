@@ -1,0 +1,22 @@
+FDS PRACTICAL - SLIP 17
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import numpy as np
+a=np.array([25,30,28,35,40,32,29,31,27,36])
+print('Min',a.min(),'Max',a.max(),'Average',a.mean())
+
+Q2 OPTION 1
+import pandas as pd
+df=pd.read_csv('uci.csv')
+print(df.describe())
+print(df.select_dtypes('number').mean())
+print(df.isnull().sum())
+
+Q2 OPTION 2
+import pandas as pd
+df=pd.DataFrame({'Employee_ID':range(1,11),'Department':['IT','HR','Sales','IT','HR','Sales','IT','HR','Sales','IT'],'Age':[22,25,30,28,26,24,29,31,27,23],'Salary':[20000,25000,30000,28000,26000,24000,29000,31000,27000,23000]})
+print(df.sample(5))
+print(df.iloc[::3])
+print(df.groupby('Department').sample(1))

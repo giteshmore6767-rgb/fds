@@ -1,0 +1,24 @@
+FDS PRACTICAL - SLIP 23
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+df=pd.DataFrame({'Product':['Pen','Book','Bag','Bottle','Pencil'],'Price':[10,50,500,100,5]})
+print(df)
+print('Max',df.Price.max(),'Min',df.Price.min(),'Average',df.Price.mean())
+
+Q2 OPTION 1
+import pandas as pd
+df=pd.DataFrame([[1,2,3],[4,5,6],[7,8,9]])
+print(df)
+print(df.div(df.abs().sum(axis=1),axis=0))
+
+Q2 OPTION 2
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler,StandardScaler,Normalizer
+df=pd.read_csv('diabetes.csv')
+x=df.select_dtypes('number')
+print(MinMaxScaler().fit_transform(x))
+print(StandardScaler().fit_transform(x))
+print(Normalizer().fit_transform(x))

@@ -1,0 +1,26 @@
+FDS PRACTICAL - SLIP 11
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+s=pd.Series([12,15,18,20,22,25,28,30,32,35,38,40])
+print('Range',s.max()-s.min(),'Variance',s.var(),'SD',s.std())
+
+Q2 OPTION 1
+import pandas as pd
+import matplotlib.pyplot as plt
+df=pd.read_csv('iris.csv')
+print(df['species'].value_counts().plot(kind='bar')); plt.show()
+for c in df.select_dtypes('number'):
+    for name,g in df.groupby('species'):
+        plt.hist(g[c],alpha=.5,label=name)
+    plt.title(c); plt.legend(); plt.show()
+
+Q2 OPTION 2
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df=pd.read_csv('iris.csv')
+for c in df.select_dtypes('number'):
+    sns.boxplot(data=df,x='species',y=c); plt.show()

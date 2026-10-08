@@ -1,0 +1,24 @@
+FDS PRACTICAL - SLIP 27
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+df=pd.DataFrame({'Category':['A','B','C','D','E'],'Value':[10,25,15,30,20]})
+print(df)
+print('Max',df.Value.max(),'Min',df.Value.min())
+
+Q2 OPTION 1
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df=pd.read_csv('iris.csv')
+sns.jointplot(data=df,x='sepal_length',y='sepal_width',kind='kde')
+
+Q2 OPTION 2
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df=pd.read_csv('iris.csv')
+for c in df.select_dtypes('number'):
+    sns.boxplot(data=df,x='species',y=c); plt.show()

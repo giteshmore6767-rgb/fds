@@ -1,0 +1,27 @@
+FDS PRACTICAL - SLIP 1
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+d={'Name':['Amit','Riya','Sam','Neha','Raj','Pooja','Kiran','Maya'],'Department':['IT','HR','Sales','IT','HR','Sales','IT','HR'],'Designation':['Dev','Manager','Clerk','Tester','Lead','Exec','Dev','Clerk'],'Salary':[30000,45000,25000,32000,50000,28000,35000,26000]}
+print(pd.DataFrame(d).head())
+
+Q2 OPTION 1
+import pandas as pd
+d={'Name':['Smaran','Sachin','Samarpan','Spandan','Shravan'],'Address':['Pune','Mumbai','Delhi','Chennai','Madurai'],'Age':[20,23,19,21,22],'Class':['BE','BSc(CS)','BVoC','BCom','BSc']}
+pd.DataFrame(d).to_csv('StudentData.csv',index=False)
+df=pd.read_csv('StudentData.csv')
+print(pd.get_dummies(df,columns=['Name']))
+from sklearn.preprocessing import LabelEncoder
+df['Class']=LabelEncoder().fit_transform(df['Class'])
+print(df)
+
+Q2 OPTION 2
+import numpy as np
+import matplotlib.pyplot as plt
+a=np.random.randint(1,100,25)
+plt.plot(a); plt.title('Line'); plt.show()
+plt.scatter(range(25),a); plt.title('Scatter'); plt.show()
+plt.hist(a,color='orange'); plt.title('Histogram'); plt.show()
+plt.boxplot(a); plt.title('Box Plot'); plt.show()

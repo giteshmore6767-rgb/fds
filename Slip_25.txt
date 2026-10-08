@@ -1,0 +1,22 @@
+FDS PRACTICAL - SLIP 25
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+df=pd.DataFrame({'Product':['Pen','Book','Bag','Bottle','Pencil'],'Quantity':[10,5,2,8,20],'Price':[10,50,500,100,5]})
+print(df)
+print('Total quantity',df.Quantity.sum(),'Average price',df.Price.mean())
+
+Q2 OPTION 1
+import pandas as pd
+df=pd.DataFrame({'Price':[10,20,30,40,50,60,70]})
+df['Category']=pd.cut(df.Price,3,labels=['Low','Medium','High'])
+print(df)
+
+Q2 OPTION 2
+import pandas as pd
+from sklearn.preprocessing import Normalizer
+df=pd.DataFrame([[3,4],[1,2],[5,12]])
+print(df)
+print(Normalizer().fit_transform(df))

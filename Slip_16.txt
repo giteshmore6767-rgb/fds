@@ -1,0 +1,24 @@
+FDS PRACTICAL - SLIP 16
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+df=pd.DataFrame({'rollno':[1,2,3],'name':['A','B','C'],'mark1':[70,80,90],'mark2':[75,85,95],'mark3':[80,70,88]})
+print(df.max(numeric_only=True)); print(df.min(numeric_only=True)); print(df.describe()); print(df.shape)
+
+Q2 OPTION 1
+import numpy as np
+a=np.array([[2,4,6],[3,5,7]],float); w=np.array([1,2,3])
+print('Weighted arithmetic',np.average(a,weights=w,axis=1))
+print('Weighted harmonic',w.sum()/np.sum(w/a,axis=1))
+print('Weighted geometric',np.exp(np.average(np.log(a),weights=w,axis=1)))
+
+Q2 OPTION 2
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+df=pd.DataFrame({'country':['India','USA','UK','India'],'purchased':['Yes','No','Yes','No']})
+df.to_csv('data.csv',index=False)
+df=pd.get_dummies(df,columns=['country'])
+df['purchased']=LabelEncoder().fit_transform(df['purchased'])
+print(df)

@@ -1,0 +1,23 @@
+FDS PRACTICAL - SLIP 19
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import numpy as np
+a=np.array([75,82,90,68,95,88,79,92,85,70])
+print('Sorted',np.sort(a))
+print('Top 3',np.sort(a)[-3:][::-1])
+
+Q2 OPTION 1
+import numpy as np
+a=np.array([[2,4,6],[3,5,7]],float); w=np.array([1,2,3])
+print(np.average(a,weights=w,axis=1))
+print(w.sum()/np.sum(w/a,axis=1))
+print(np.exp(np.average(np.log(a),weights=w,axis=1)))
+
+Q2 OPTION 2
+import numpy as np
+a=np.array([1,2,3,4,5]); b=np.array([2,4,6,8,10])
+c=np.correlate(a-a.mean(),b-b.mean(),mode='full')
+print('Correlation',c.max()/(np.std(a)*np.std(b)*len(a)))
+print('Lag',np.argmax(c)-(len(a)-1))

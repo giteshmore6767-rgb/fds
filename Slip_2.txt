@@ -1,0 +1,22 @@
+FDS PRACTICAL - SLIP 2
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+s=pd.Series([72,85,91,68,85,79,94])
+print('Sum',s.sum(),'Average',s.mean(),'Median',s.median(),'Mode',s.mode()[0],'Min',s.min(),'Max',s.max(),'SD',s.std())
+
+Q2 OPTION 1
+import matplotlib.pyplot as plt
+n=['A','B','C','D']; p=[80,75,90,65]
+plt.pie(p,labels=n,autopct='%1.1f%%'); plt.show()
+plt.bar(n,p); plt.xlabel('Students'); plt.ylabel('Percentage'); plt.show()
+
+Q2 OPTION 2
+import pandas as pd
+import numpy as np
+df=pd.DataFrame({'X':[1,2,3,4],'Y':[2,4,6,8]})
+a=df.iloc[0].values; b=df.iloc[2].values
+print('Difference',b-a)
+print('Distance',np.linalg.norm(b-a))

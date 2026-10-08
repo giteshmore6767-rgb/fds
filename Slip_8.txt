@@ -1,0 +1,23 @@
+FDS PRACTICAL - SLIP 8
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+d={'Title':['Book1','Book2','Book3','Book4','Book5','Book6','Book7','Book8'],'Author':['A','B','C','D','E','F','G','H'],'Category':['Fiction','Science','History','Fiction','Science','Poetry','History','Fiction'],'Rating':[4.1,4.5,3.8,4.2,4.0,4.6,3.9,4.3]}
+print(pd.DataFrame(d).head())
+
+Q2 OPTION 1
+import pandas as pd
+d={'Name':['Shyama','Shreeji','Ramya','Radha','Satya'],'Address':['Pune','Mumbai','Delhi','Mumbai','Pune'],'Age':[20,19,None,21,22],'Class':['BSc Chemistry','BSc Physics','BSc Biology','BSc Zoology','BSc CS']}
+df=pd.DataFrame(d); df['Age']=df['Age'].fillna(df['Age'].mean())
+print(pd.get_dummies(df,columns=['Address']))
+
+Q2 OPTION 2
+import pandas as pd
+from scipy.stats import zscore
+s=pd.Series([20,22,23,24,25,26,27,28,29,30,31,32,33,35,100])
+q1=s.quantile(.25); q3=s.quantile(.75); i=q3-q1
+print('Quartiles',s.quantile([.25,.5,.75,.9]))
+print('IQR',s[(s<q1-1.5*i)|(s>q3+1.5*i)].tolist())
+print('Z-score',s[abs(zscore(s))>3].tolist())

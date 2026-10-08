@@ -1,0 +1,21 @@
+FDS PRACTICAL - SLIP 22
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+s=['Math','Science','English','History']; m=[80,75,90,65]
+print(pd.DataFrame({'Subject':s,'Marks':m}))
+
+Q2 OPTION 1
+import pandas as pd
+df=pd.read_csv('employee.csv')
+print(df); print(df.describe()); print(df.head()); print(df.tail()); print(df.max()); print(df.min())
+
+Q2 OPTION 2
+import matplotlib.pyplot as plt
+x=[1,2,3,4,5]; y=[10,15,12,20,18]
+fig,ax=plt.subplots(figsize=(7,4))
+ax.plot(x,y,linewidth=2,marker='o')
+ax.set(title='Numerical Data',xlabel='X values',ylabel='Y values')
+plt.show()

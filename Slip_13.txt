@@ -1,0 +1,27 @@
+FDS PRACTICAL - SLIP 13
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+df=pd.read_csv('data.csv')
+print('Shape',df.shape,'Size',df.size)
+print(df.dtypes); print(df.describe(include='all'))
+print('Observations',len(df)); print(df.isnull().sum())
+
+Q2 OPTION 1
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+df=pd.DataFrame({'country':['India','USA','India','UK'],'purchased':['Yes','No','No','Yes']})
+df.to_csv('data.csv',index=False)
+df=pd.get_dummies(df,columns=['country'])
+df['purchased']=LabelEncoder().fit_transform(df['purchased'])
+print(df)
+
+Q2 OPTION 2
+import numpy as np
+import matplotlib.pyplot as plt
+a=np.random.randint(1,100,50).tolist()
+for f in [lambda:plt.plot(a),lambda:plt.scatter(range(50),a),lambda:plt.hist(a),lambda:plt.boxplot(a)]:
+    f(); plt.show()
+a += [200,-100]; plt.boxplot(a); plt.show()

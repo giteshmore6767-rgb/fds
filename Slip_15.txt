@@ -1,0 +1,22 @@
+FDS PRACTICAL - SLIP 15
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import matplotlib.pyplot as plt
+s=['Math','Science','English','History']; m=[80,75,90,65]
+plt.pie(m,labels=s,autopct='%1.1f%%'); plt.show()
+plt.bar(s,m); plt.xlabel('Subject'); plt.ylabel('Marks'); plt.show()
+
+Q2 OPTION 1
+import pandas as pd
+df=pd.read_csv('data.csv')
+print(df); print(df.describe()); print(df.head()); print(df.tail()); print(df.max()); print(df.min())
+
+Q2 OPTION 2
+import pandas as pd
+import matplotlib.pyplot as plt
+df=pd.read_csv('Data.csv')
+for c in ['salary','age']: df[c]=df[c].fillna(df[c].mean())
+print(df)
+plt.plot(df['name'],df['salary'],marker='o'); plt.xlabel('Name'); plt.ylabel('Salary'); plt.show()

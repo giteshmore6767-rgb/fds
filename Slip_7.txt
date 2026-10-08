@@ -1,0 +1,23 @@
+FDS PRACTICAL - SLIP 7
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+d={'staff_id':[1,2,3,4,5],'employee_name':['A','B','C','D','E'],'department':['IT','HR','Sales','IT','HR'],'monthly_salary':[30000,25000,28000,35000,27000]}
+pd.DataFrame(d).to_csv('staff.csv',index=False)
+print(pd.read_csv('staff.csv'))
+
+Q2 OPTION 1
+import numpy as np
+import matplotlib.pyplot as plt
+a=np.array([22,25,28,30,32,35,38,40,42,45,48,50,52,55,60])
+b=[20,30,40,50,60,70]
+print(np.histogram(a,bins=b)[0])
+plt.hist(a,bins=b,edgecolor='black'); plt.xlabel('Age'); plt.ylabel('Frequency'); plt.show()
+
+Q2 OPTION 2
+import pandas as pd
+df=pd.DataFrame({'Roll No':[1,2,3,4,5],'Name':['A','B','C','D','E'],'Percentage':[70,80,75,90,80]})
+s=df['Percentage']
+print('Mean',s.mean(),'Median',s.median(),'Mode',s.mode()[0])

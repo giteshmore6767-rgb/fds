@@ -1,0 +1,23 @@
+FDS PRACTICAL - SLIP 10
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import pandas as pd
+df=pd.DataFrame({'student_id':[1,2,3,4,5],'name':['A','B','C','D','E'],'marks':[70,80,75,90,80]})
+s=df['marks']
+print('Mean',s.mean(),'Median',s.median(),'Mode',s.mode()[0])
+
+Q2 OPTION 1
+import pandas as pd
+df=pd.DataFrame({'emp_name':list('ABCDEFGHIJ'),'age':[22,25,30,28,26,24,29,31,27,23],'salary':[20000,25000,30000,28000,26000,24000,29000,31000,27000,23000]})
+print(df.shape); print(df.describe())
+x=pd.DataFrame({'emp_name':['A','B','C','D','E'],'age':[22,None,30,28,22],'salary':[20000,25000,None,28000,20000]})
+df=pd.concat([df,x],ignore_index=True); df['Department']=''; print(df)
+
+Q2 OPTION 2
+import pandas as pd
+df=pd.read_csv('Student_Marks.csv')
+print(df)
+df['Performance']=pd.cut(df['Marks'],[0,40,60,80,100],labels=['Poor','Average','Good','Excellent'])
+print(df)

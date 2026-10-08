@@ -1,0 +1,27 @@
+FDS PRACTICAL - SLIP 21
+Note: Install required libraries: pandas, numpy, matplotlib, seaborn, scikit-learn, scipy.
+Keep the required CSV file in the same folder as the program.
+
+Q1
+import numpy as np
+a=np.array([35,45,55,65,75,85,30,60,90,50])
+print('Below 40',sum(a<40))
+print('40 to 70',sum((a>=40)&(a<70)))
+print('70 and above',sum(a>=70))
+
+Q2 OPTION 1
+import numpy as np
+import matplotlib.pyplot as plt
+a=np.random.randint(1,100,50).tolist()+[200,-100]
+plt.plot(a); plt.show()
+plt.scatter(range(len(a)),a); plt.show()
+plt.hist(a); plt.show()
+plt.boxplot(a); plt.show()
+
+Q2 OPTION 2
+import numpy as np
+import matplotlib.pyplot as plt
+a=np.random.normal(50,10,100); b=np.random.normal(70,15,100)
+plt.hist(a,bins=15,alpha=.5,edgecolor='black')
+plt.hist(b,bins=15,alpha=.5,edgecolor='black')
+plt.show()
